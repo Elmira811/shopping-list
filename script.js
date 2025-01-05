@@ -1,21 +1,24 @@
 const input = document.querySelector('#input');
 const itemsContainer = document.querySelector('#items');
   
+
 input.addEventListener('keydown', function(event) {
   const text = input.value;
 
-  const newItem = document.createElement('div');
-  newItem.textContent = text;
+  if(event.key == 'Enter') {
+    const newItem = document.createElement('div');
+    newItem.textContent = text;
 
-  if(event.key == 'Enter' && text != '') {
-    itemsContainer.append(newItem);
+    newItem.addEventListener('click', function() {
+      newItem.classList.toggle('done');
+    })
+  
+    if(text != '') {
+      itemsContainer.append(newItem);
+    }
+  
+    input.value = '';
   }
-
-  newItem.addEventListener('click', function() {
-    newItem.classList.toggle('done');
-  })
-
-  input.value = '';
 })
 
 
