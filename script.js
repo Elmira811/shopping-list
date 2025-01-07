@@ -3,9 +3,9 @@ const itemsContainer = document.querySelector('#items');
   
 
 input.addEventListener('keydown', function(event) {
-  const text = input.value;
-
   if(event.key == 'Enter') {
+    const text = input.value;
+
     const newItem = document.createElement('div');
     newItem.textContent = text;
 
